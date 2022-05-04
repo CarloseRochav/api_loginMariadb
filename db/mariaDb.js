@@ -2,7 +2,7 @@
 const mysql= require("mysql2");
 
 
-const pool = mysql.createPool({
+const pool = mysql.createConnection({
      connectionLimit: 100,
      host: "127.0.0.1",       //This is your localhost IP
      user: "carloserochav",         // "newuser" created in Step 1(e)

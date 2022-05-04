@@ -1,5 +1,5 @@
 const app = require("./app");
-const pool = require("./db/mariaDb");
+const con = require("./db/mariaDb");
 const userRoutes = require("./routes/userRoutes");
 
 
@@ -18,10 +18,9 @@ app.listen(port, "0.0.0.0", () => {
    
 
     //Conexion con la base de datos establecida
-    pool.getConnection( (err, connection)=> {
-
-      if (err) throw (err)
-      console.log ("DB connected successful: " + connection.threadId)
-   })   
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+      });
 
  });
